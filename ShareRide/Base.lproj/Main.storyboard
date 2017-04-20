@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -106,7 +106,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <segue destination="qbm-fd-5u0" kind="showDetail" id="raF-dT-sfM"/>
+                                            <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aYQ-hT-FDC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -146,7 +146,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7cV-hC-qvU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App-logo" translatesAutoresizingMaskIntoConstraints="NO" id="7cV-hC-qvU">
                                 <rect key="frame" x="112" y="28" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="dJL-UF-bDf"/>
@@ -159,8 +159,8 @@
                                     <constraint firstAttribute="height" constant="45" id="oFM-x4-H3f"/>
                                     <constraint firstAttribute="width" constant="170" id="zyL-TF-Ie9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.13725490196078433" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -176,6 +176,10 @@
                             <constraint firstItem="IUh-pG-eDh" firstAttribute="top" secondItem="01o-ab-Ict" secondAttribute="bottom" constant="17" id="vZz-4x-kp3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginEmailTextField" destination="d8j-L8-3oj" id="q9d-VH-LS4"/>
+                        <outlet property="loginPasswordTextField" destination="Meh-4Z-8dk" id="oFQ-0V-Sh9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,7 +315,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
-                                            <segue destination="qbm-fd-5u0" kind="showDetail" id="1mf-El-i5Z"/>
+                                            <action selector="registerAccountAction:" destination="xSu-e0-TvY" eventType="touchUpInside" id="9AR-P0-h8W"/>
+                                            <segue destination="qbm-fd-5u0" kind="showDetail" identifier="registerSegue" id="1mf-El-i5Z"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -374,10 +379,18 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="BFc-as-yNY"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="MsE-hO-jiv">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="showDetail" id="cWS-Ev-D29"/>
+                                <action selector="cancelRegistrationAction:" destination="xSu-e0-TvY" id="Jx0-8h-eTg"/>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" identifier="cancelRegistrationSegue" id="cWS-Ev-D29"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="VB1-T0-AjE" id="Gt8-Dg-Pta"/>
+                        <outlet property="firstNameTextField" destination="Aln-54-38z" id="Sik-yt-rsE"/>
+                        <outlet property="lastNameTextField" destination="r2D-rb-rRy" id="T53-dS-sYI"/>
+                        <outlet property="passwordTextField" destination="czx-kP-3BO" id="WUF-Sx-7LO"/>
+                        <outlet property="reEnterPasswordTextField" destination="4xn-c7-YgX" id="Xwd-B1-Ysk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gex-9a-eoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -404,7 +417,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rgc-3I-VIN" id="z84-qX-ts3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hamza Alsarhan requested your Middlebury - Boston ride." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7C-fh-iTM">
@@ -447,7 +460,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" id="kxk-D0-WTp"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="Noti-TabBar" id="kxk-D0-WTp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elx-Mg-WHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -466,7 +479,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJ3-Hw-Gbk" id="4nh-8v-RMB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Middlebury to New York" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnq-gB-FIU">
@@ -516,7 +529,7 @@
                             <outlet property="delegate" destination="uw2-di-UOS" id="8ib-zE-jSw"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Activities" id="BZe-4S-DGo"/>
+                    <tabBarItem key="tabBarItem" title="Activities" image="Activity-TabBar" id="BZe-4S-DGo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lqi-U6-GMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,7 +615,7 @@
                             <outletCollection property="gestureRecognizers" destination="egI-Qg-shl" appends="YES" id="pQP-zO-Qhs"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Rides" id="VMB-zW-k8x"/>
+                    <tabBarItem key="tabBarItem" title="Rides" image="Car-TabBar" id="VMB-zW-k8x"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVJ-52-dra" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="egI-Qg-shl"/>
@@ -1110,7 +1123,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0sg-td-xAH" id="byx-rS-Y4p">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sq0-cl-IyY">
@@ -1168,7 +1181,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" id="t3Z-7V-hmE"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="Message-TabBar" id="t3Z-7V-hmE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGd-Jy-5bW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1215,11 +1228,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVV-KZ-jVh" id="ApA-w2-6Nu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QD5-Hj-7wj">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="49.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1232,7 +1245,7 @@
                                 <rect key="frame" x="0.0" y="78" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7vm-o6-GFX" id="qgW-7z-8FI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOg-oo-4t0">
@@ -1250,7 +1263,7 @@
                             <outlet property="delegate" destination="Leh-Xu-Yfg" id="EcR-xX-hwe"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="o3S-z4-nao"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Setting-TabBar" id="o3S-z4-nao"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dJ-Th-ZYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1260,7 +1273,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="WYr-q4-A6L">
             <objects>
-                <tabBarController id="qbm-fd-5u0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabController" id="qbm-fd-5u0" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZCD-WN-A8l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1279,7 +1292,12 @@
             <point key="canvasLocation" x="1066" y="1192"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="raF-dT-sfM"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="Activity-TabBar" width="75" height="112"/>
+        <image name="App-logo" width="250" height="246"/>
+        <image name="Car-TabBar" width="55" height="82"/>
+        <image name="Message-TabBar" width="200" height="300"/>
+        <image name="Noti-TabBar" width="50" height="75"/>
+        <image name="Setting-TabBar" width="50" height="75"/>
+    </resources>
 </document>
